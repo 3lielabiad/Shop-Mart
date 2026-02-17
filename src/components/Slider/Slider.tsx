@@ -15,7 +15,7 @@ interface SliderProps {
 }
 
 
-export default function Slider({ images, title }: SliderProps) {
+export default function Slider({ images, title }: {images:string [], title :string}) {
 
 
     return <>
