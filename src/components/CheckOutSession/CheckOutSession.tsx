@@ -30,6 +30,7 @@ export default function CheckOutSession({ cartId }: { cartId: string | undefined
         setIsLoading(true)
         if (!cartId) {
             console.error("Cart ID is missing")
+            setIsLoading(false)
             return
 
         }
@@ -40,14 +41,13 @@ export default function CheckOutSession({ cartId }: { cartId: string | undefined
         };
 
         const response = await checkOutAction(cartId, shippingAddress);
-        
-        if (response.status === 'success'){
-            location.href =  response.session.url
+
+
+        if (response?.status === "success" && response.message) {
+            location.href = response?.message
         }
         setIsLoading(false)
-
     }
-
     return <>
 
         <Dialog>
