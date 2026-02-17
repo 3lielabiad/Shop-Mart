@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef } from 'react'
+
 import Image from 'next/image'
 import {
     Carousel,
@@ -9,8 +9,9 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from 'embla-carousel-autoplay'
+
 interface SliderProps {
-    image: string[]
+    images: string
     title: string
 }
 

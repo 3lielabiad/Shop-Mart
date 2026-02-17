@@ -18,7 +18,7 @@ export default async function BrandDetails({ params, } : { params : {branId : st
 
         <Card className="grid grid-cols-3 items-center">
 
-                <Slider images={[brand.image]} title={brand.name} />
+                <Slider images={brand.images} title={brand.name} />
 
             <div className=" col-span-2 p-4 ">
 

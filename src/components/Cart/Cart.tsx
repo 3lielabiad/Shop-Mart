@@ -13,7 +13,7 @@ interface CartProps {
     cartData: CartRes |null
 }
 
-export default function Cart({ cartData }: { cartData: CartRes | null }) {
+export default function Cart({ cartData }: CartProps) {
 
     const [cart, setCart] = useState<CartRes | null>(cartData || null)
     const [loadingId, setLoadingId] = useState<string | null>(null);
