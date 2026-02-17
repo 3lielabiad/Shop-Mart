@@ -7,11 +7,11 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     <div className="lg:col-span-1">
-                        <div className="flex iteams-center mb-4">
+                        <div className="flex items-center mb-4">
                             <div className="w-8 h-8 bg-black flex items-center justify-center mr-3">
                                 <span className="text-white font-bold text-lg">S</span>
                             </div>
-                            <span className="textx-xl font-bold text-black">ShopMart</span>
+                            <span className="text-xl font-bold text-black">ShopMart</span>
                         </div>
                         <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde cumque voluptate omnis enim numquam esse distinctio autem inventore odio? Commodi nobis fugiat omnis, laborum nisi deleniti alias vel autem ducimus.

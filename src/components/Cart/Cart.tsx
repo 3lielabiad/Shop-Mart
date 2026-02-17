@@ -9,6 +9,10 @@ import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import CheckOutSession from "../CheckOutSession/CheckOutSession"
 
+interface CartProps {
+    cartData: CartRes |null
+}
+
 export default function Cart({ cartData }: { cartData: CartRes | null }) {
 
     const [cart, setCart] = useState<CartRes | null>(cartData || null)

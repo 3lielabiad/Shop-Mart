@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import {
     Carousel,
@@ -9,21 +9,27 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Autoplay from 'embla-carousel-autoplay'
-export default function Slider({ images, title }: { images: string[], title: string }) {
+interface SliderProps {
+    image: string[]
+    title: string
+}
+
+
+export default function Slider({ images, title }: SliderProps) {
 
 
     return <>
-        <Carousel opts={{ loop: true, }} plugins={[
-            Autoplay({
-                delay: 1000,
-            }),
-        ]}>
+        <Carousel opts={{ loop: true }} plugins={[
+            Autoplay({delay:3000}),]}>
+                
             <CarouselContent>
-                {images.map((img , index) =>
+                {images.map((img , index) => (
+                    
                     <CarouselItem key={index}>
-                         <Image src={img} alt={title} width={400}
-                         height={300} className="w-full" />
-                    </CarouselItem>)}
+                         <Image src={img} alt={'${title} ${index+1}'} width={800}
+                         height={400} className="w-full object-cover" />
+                    </CarouselItem>
+                ))}
 
             </CarouselContent>
             <CarouselPrevious />

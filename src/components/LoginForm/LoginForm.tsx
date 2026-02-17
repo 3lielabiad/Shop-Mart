@@ -60,15 +60,15 @@ export default function LoginForm() {
         const response = await signIn ( 'credentials' , {
             email: data.email,
             password: data.password,
-            redirect: true,
-            callbackUrl: redirectURL ? redirectURL : '/products',
+            redirect: false,
+            callbackUrl: redirectURL ?? '/products',
         })
         
         if (response?.ok) {
             toast.success('success login')
-            router.push('/products')
+            router.push(redirectURL?? '/products')
         }else{
-            toast.error(response?.error!)
+            toast.error(response?.error ?? 'login faild')
         }
         setIsloading(false)
     }

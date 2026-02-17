@@ -26,24 +26,31 @@ import { authOptions } from '@/auth'
 import LogOut from '../LogOut/LogOut'
 import CartIcon from '../CartIcon/CartIcon'
 import { CartRes } from '@/interfaces/CartInterfaces'
+
+
 export default async function Navbar() {
-
-
 
   const session = await getServerSession(authOptions);
   
   let data: CartRes | null = null
-  if (session){
-    
-    const session = await getServerSession(authOptions);
-
-    const response = await fetch('https://ecommerce.routemisr.com/api/v1/cart', {
-        headers:{
-            token: session?.token as string
+  if (session?.token){
+     
+    try {
+  
+      const response = await fetch('https://ecommerce.routemisr.com/api/v1/cart', {
+          headers:{
+              token: session.token
+            }
+          })
+          if (response.ok){
+            data = await response.json()
+          }else{data = null}
+          
+        } catch (err){
+          data = null
         }
-    });
-    data = await response.json()
   }
+
 
   return <>
 
@@ -57,10 +64,6 @@ export default async function Navbar() {
         <div className="">
           <NavigationMenu>
             <NavigationMenuList>
-
-
-
-
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className=''>
                   <Link href="/products">Products</Link>
