@@ -22,8 +22,8 @@ export default async function CategoryDetails({ params } : { params : {categoryI
 
         <div className="max-w-xl mx-auto text-center">
             <Image
-            src={category.image}
-            alt='category.image'
+            src={category.images}
+            alt='category.images'
             width={400}
             height={300}
             className="w-full object-cover" />

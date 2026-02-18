@@ -9,21 +9,20 @@ type cartIconProps = {
 }
 
 export default function CartIcon({ serverCartNum, cartId }: cartIconProps) {
-    if (cartId) {
-        localStorage.setItem("cartId", cartId)
-    }
     const [cartnum, setCartNum] = useState(serverCartNum)
+    useEffect(()=>{
 
-    useEffect(() => {
-
+        if (cartId) {
+            localStorage.setItem("cartId", cartId)}
         function handler(e: CustomEvent) {
-
             setCartNum(e.detail)
         }
-        window.addEventListener('cartUpdate', handler as EventListener)
-
-    }, [])
-
+        window.addEventListener('cartUpdate',handler as EventListener)
+        return () => {
+            window.removeEventListener(',cartUpdate', handler as EventListener)
+        }
+        } , [cartId])
+    
     return <>
         <Link href="/cart" className="relative cursor-pointer">
             <ShoppingCartIcon className="size-6 text-inherit" />
